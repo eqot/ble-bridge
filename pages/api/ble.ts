@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Server, Socket } from "socket.io";
 import noble from "@abandonware/noble";
+// @ts-ignore
 import osc from "osc";
 
 export default function handler(
@@ -21,10 +22,13 @@ export default function handler(
       localPort: 7001,
       metadata: true,
     });
-    udpPort.on("message", function (oscMsg, timeTag, info) {
-      console.log("An OSC message just arrived!", oscMsg);
-      console.log("Remote info is: ", info);
-    });
+    udpPort.on(
+      "message",
+      function (oscMsg: string, timeTag: string, info: any) {
+        console.log("An OSC message just arrived!", oscMsg);
+        console.log("Remote info is: ", info);
+      }
+    );
     udpPort.open();
     // @ts-ignore
     res.socket.server.udpPort = udpPort;
