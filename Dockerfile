@@ -16,6 +16,8 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /usr/src/app
 RUN git clone https://github.com/eqot/ble-bridge.git
 
+ENV NEXT_TELEMETRY_DISABLED 1
+
 WORKDIR /usr/src/app/ble-bridge
 RUN npm install && npm run build
 
