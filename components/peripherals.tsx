@@ -2,6 +2,8 @@ import { CSSProperties, useEffect, useState } from "react";
 import { io, Socket } from "socket.io-client";
 
 import { styled } from "@mui/material/styles";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Table from "@mui/material/Table";
@@ -47,7 +49,11 @@ export const Peripherals = (props: any) => {
   // console.log(peripherals);
 
   return (
-    <>
+    <Container component="main" maxWidth="lg">
+      <Typography component="h1" variant="h5">
+        Bluetooth
+      </Typography>
+
       <Grid container justifyContent="flex-end">
         <Button variant="contained" onClick={startScanning}>
           <RefreshIcon /> 更新
@@ -76,7 +82,7 @@ export const Peripherals = (props: any) => {
           </TableBody>
         </Table>
       </TableContainer>
-    </>
+    </Container>
   );
 };
 

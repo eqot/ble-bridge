@@ -19,7 +19,7 @@ export default function handler(
 
     const udpPort = new osc.UDPPort({
       localAddress: "0.0.0.0",
-      localPort: 7001,
+      localPort: 10001,
       metadata: true,
     });
     udpPort.on(
